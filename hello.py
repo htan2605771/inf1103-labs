@@ -34,3 +34,14 @@ print("day 3:", followers)
 ## a. no the += and -= does the reassignment for me
 ## b. each operation builds on whatever followers currently holds not the original 100 thats why the numbers keep climbin
 ## c. it updates a variable based on its current value 
+
+## Activity 4
+username = input("Enter Username: ")
+age = input("Enter Age: ")
+category = input("Enter Content Category: ")
+
+print("\nInstagram Profile")
+print("=====================")
+print("Username:", username)
+print("Age:", age)
+print("Category:", category)
