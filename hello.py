@@ -45,3 +45,15 @@ print("=====================")
 print("Username:", username)
 print("Age:", age)
 print("Category:", category)
+
+## activity 4 answers
+## a. displays as a prompt then pauses until user types something and presses Enter then displays the entered value at the end of the program
+## b. dynamic. 
+
+## Activity 5
+if age>40 and category == "fun":
+    print("you are old what is fun for you??")
+
+## activity 5 answers
+## a. always returns a string even if the user types numbers
+## b. if statement uses and to check 2 conditions at once. both conditions must be true for the message to print
