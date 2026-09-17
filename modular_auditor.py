@@ -20,4 +20,11 @@ def get_valid_input():
         return None
  
     return int(stock)
+
+
+def process_delivery(current_total, new_value):
+    """
+    Adds new_value to current_total and returns the new total.
+    """
+    return current_total + new_value
  
