@@ -23,6 +23,16 @@ def load_inventory():
  
     except FileNotFoundError:
         return 0, []
+    
+def save_inventory(total, history):
+    """
+    Writes the final total and transaction history to inventory.txt.
+    Line 1: total
+    Line 2: comma-separated history of transaction amounts
+    """
+    with open(INVENTORY_FILE, "w") as f:
+        f.write(f"{total}\n")
+        f.write(",".join(str(x) for x in history) + "\n")
  
 
 def get_valid_input():
