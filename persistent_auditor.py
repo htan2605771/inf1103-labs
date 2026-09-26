@@ -84,36 +84,37 @@ def generate_report(total_units, failed_attempts):
 
 
 def main():
-    inventory = 0
+    inventory, history = load_inventory()   # only the ", history" part is new here
     failed_entries = 0
     deliveries_processed = 0
- 
+
     while True:
         result = get_valid_input()
- 
+
         if result == "quit":
             break
- 
+
         if result is None:
             failed_entries += 1
             continue
- 
+
         # Valid delivery received
         tax = calculate_tax(result)
         inventory = process_delivery(inventory, result)
+        history.append(result)              # <-- this line is the chunk 3 addition
         deliveries_processed += 1
- 
+
         print("Stock accepted.")
         print("Current inventory:", inventory)
         print(f"Tax for this delivery: {tax:.2f}")
- 
+
         if inventory > 500:
             print("ALERT: Overstock! Inventory exceeds 500 units.")
             break
- 
+
     generate_report(inventory, failed_entries)
     print("Total Deliveries Processed:", deliveries_processed)
- 
- 
+    print("Transaction History:", history)   # <-- this print is also chunk 3, to verify it's tracking
+    
 if __name__ == "__main__":
     main()
