@@ -35,3 +35,16 @@ def save_inventory(inventory):
         json.dump(inventory, f, indent=4)
     print("Inventory saved successfully to inventory.json.")
 
+def display_all(inventory):
+    """
+    Prints all products in the inventory.
+    """
+    print("Current Inventory")
+    print("-" * 50)
+    if not inventory:
+        print("No products in inventory.")
+    else:
+        for item in inventory:
+            print(f"ID: {item['id']} | Name: {item['name']} | "
+                  f"Price: ${item['price']:.2f} | Stock: {item['stock']}")
+    print("-" * 50)
