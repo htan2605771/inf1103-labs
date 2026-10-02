@@ -8,4 +8,20 @@ DEFAULT_INVENTORY = [
     {"id": "P002", "name": "Mouse", "price": 25.50, "stock": 40},
     {"id": "P003", "name": "Keyboard", "price": 45.00, "stock": 25},
 ]
- 
+
+
+def load_inventory():
+    """
+    Loads inventory from inventory.json if it exists.
+    Otherwise starts with a default list of products.
+    Returns a list of dictionaries.
+    """
+    if os.path.exists(INVENTORY_FILE):
+        print("inventory.json found.")
+        with open(INVENTORY_FILE, "r") as f:
+            data = json.load(f)
+        print("Inventory loaded successfully.")
+        return data
+    else:
+        print("inventory.json not found. Starting with default inventory.")
+        return [dict(item) for item in DEFAULT_INVENTORY]
