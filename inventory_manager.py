@@ -48,7 +48,7 @@ def display_all(inventory):
             print(f"ID: {item['id']} | Name: {item['name']} | "
                   f"Price: ${item['price']:.2f} | Stock: {item['stock']}")
     print("-" * 50)
-    
+
 def add_product(inventory):
     """
     Prompts for new product details and adds it to the inventory list.
@@ -68,4 +68,23 @@ def add_product(inventory):
  
     print("Product added successfully!")
  
+ 
+def update_stock(inventory):
+    """
+    Prompts for a product ID, and if found, updates its stock quantity.
+    """
+    print("Update Stock")
+    product_id = input("Enter Product ID: ")
+ 
+    for item in inventory:
+        if item["id"] == product_id:
+            print("Product Found:")
+            print(f"Name: {item['name']}")
+            print(f"Current Stock: {item['stock']}")
+            new_stock = int(input("New Stock Quantity: "))
+            item["stock"] = new_stock
+            print("Stock updated successfully!")
+            return
+ 
+    print("Product not found.")
  
