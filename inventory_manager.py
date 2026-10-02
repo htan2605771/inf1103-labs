@@ -25,3 +25,13 @@ def load_inventory():
     else:
         print("inventory.json not found. Starting with default inventory.")
         return [dict(item) for item in DEFAULT_INVENTORY]
+
+def save_inventory(inventory):
+    """
+    Saves the current inventory list to inventory.json.
+    """
+    print("Saving inventory...")
+    with open(INVENTORY_FILE, "w") as f:
+        json.dump(inventory, f, indent=4)
+    print("Inventory saved successfully to inventory.json.")
+
