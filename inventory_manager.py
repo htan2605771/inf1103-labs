@@ -48,3 +48,24 @@ def display_all(inventory):
             print(f"ID: {item['id']} | Name: {item['name']} | "
                   f"Price: ${item['price']:.2f} | Stock: {item['stock']}")
     print("-" * 50)
+    
+def add_product(inventory):
+    """
+    Prompts for new product details and adds it to the inventory list.
+    """
+    print("Add New Product")
+    product_id = input("Product ID: ")
+    name = input("Product Name: ")
+    price = float(input("Price: "))
+    stock = int(input("Stock Quantity: "))
+ 
+    inventory.append({
+        "id": product_id,
+        "name": name,
+        "price": price,
+        "stock": stock
+    })
+ 
+    print("Product added successfully!")
+ 
+ 
