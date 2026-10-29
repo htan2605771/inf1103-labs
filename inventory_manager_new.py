@@ -105,3 +105,17 @@ def update_stock_menu(inventory):
     if product.update_stock(new_stock):
         print("Stock updated successfully!")
  
+def search_product_menu(inventory):
+    print("Search Product")
+    product_id = input("Enter Product ID: ")
+    product = inventory.search_product(product_id)
+ 
+    if product is None:
+        print("Product not found.")
+        return
+ 
+    print("Product Found")
+    print("-" * 50)
+    product.display_details()
+    print("-" * 50)
+ 
