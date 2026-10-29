@@ -32,3 +32,6 @@ class Inventory:
                 product.display_information()
         print("-" * 50)
  
+    def get_products(self):
+        """Returns a copy of the product list (used when saving)."""
+        return list(self.__products)
