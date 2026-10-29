@@ -64,3 +64,44 @@ def print_menu():
     print("6. Exit")
     print("----------------------------")
  
+def add_product_menu(inventory):
+    print("Add New Product")
+    product_id = input("Product ID: ")
+    name = input("Product Name: ")
+ 
+    try:
+        price = float(input("Price: "))
+        stock = int(input("Stock Quantity: "))
+    except ValueError:
+        print("Error: Invalid price or stock quantity. Product not added.")
+        return
+ 
+    product = Product(product_id, name, price, stock)
+    if inventory.add_product(product):
+        print("Product added successfully!")
+    else:
+        print("Error: Product ID already exists.")
+ 
+ 
+def update_stock_menu(inventory):
+    print("Update Stock")
+    product_id = input("Enter Product ID: ")
+    product = inventory.search_product(product_id)
+ 
+    if product is None:
+        print("Product not found.")
+        return
+ 
+    print("Product Found:")
+    print(f"Name: {product.get_name()}")
+    print(f"Current Stock: {product.get_stock()}")
+ 
+    try:
+        new_stock = int(input("New Stock Quantity: "))
+    except ValueError:
+        print("Error: Invalid stock quantity.")
+        return
+ 
+    if product.update_stock(new_stock):
+        print("Stock updated successfully!")
+ 
