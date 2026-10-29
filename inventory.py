@@ -21,3 +21,14 @@ class Inventory:
                 return product
         return None
  
+    def display_all(self):
+        """Prints every product in the inventory."""
+        print("Current Inventory")
+        print("-" * 50)
+        if not self.__products:
+            print("No products in inventory.")
+        else:
+            for product in self.__products:
+                product.display_information()
+        print("-" * 50)
+ 
