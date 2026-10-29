@@ -119,3 +119,37 @@ def search_product_menu(inventory):
     product.display_details()
     print("-" * 50)
  
+def main():
+    print("=" * 40)
+    print("INVENTORY MANAGEMENT SYSTEM")
+    print("=" * 40)
+ 
+    inventory = load_inventory()
+ 
+    while True:
+        print_menu()
+        option = input("Enter option: ")
+ 
+        if option == "1":
+            inventory.display_all()
+        elif option == "2":
+            add_product_menu(inventory)
+        elif option == "3":
+            update_stock_menu(inventory)
+        elif option == "4":
+            search_product_menu(inventory)
+        elif option == "5":
+            save_inventory(inventory)
+        elif option == "6":
+            print("Saving inventory before exit...")
+            save_inventory(inventory, announce=False)
+            print("Inventory saved successfully.")
+            print("Thank you for using Inventory Management System.")
+            print("Program terminated.")
+            break
+        else:
+            print("Invalid option. Please try again.")
+ 
+ 
+if __name__ == "__main__":
+    main()
