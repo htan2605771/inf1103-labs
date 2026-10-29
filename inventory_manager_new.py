@@ -41,3 +41,16 @@ def load_inventory():
     return create_default_inventory()
  
  
+def save_inventory(inventory, announce=True):
+    """Saves every Product in the inventory to inventory.json."""
+    if announce:
+        print("Saving inventory...")
+ 
+    data = [product.to_dict() for product in inventory.get_products()]
+    with open(INVENTORY_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+ 
+    if announce:
+        print("Inventory saved successfully to inventory.json.")
+ 
+ 
