@@ -14,3 +14,10 @@ class Inventory:
         self.__products.append(product)
         return True
  
+    def search_product(self, product_id):
+        """Returns the Product with the given ID, or None if not found."""
+        for product in self.__products:
+            if product.get_product_id() == product_id:
+                return product
+        return None
+ 
