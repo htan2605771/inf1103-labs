@@ -29,3 +29,9 @@ class Product:
             return False
         self.__stock = quantity
         return True
+    
+    def display_information(self):
+        """Prints the product on a single line."""
+        print(f"ID: {self.__product_id} | Name: {self.__name} | "
+              f"Price: ${self.__price:.2f} | Stock: {self.__stock}")
+ 
