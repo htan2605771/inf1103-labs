@@ -18,3 +18,14 @@ class Product:
 
     def get_stock(self):
         return self.__stock
+
+    def update_stock(self, quantity):
+        """
+        Sets the stock to the given quantity.
+        Returns True if updated, False if the quantity is invalid.
+        """
+        if quantity < 0:
+            print("Error: Stock quantity cannot be negative.")
+            return False
+        self.__stock = quantity
+        return True
